@@ -1,0 +1,56 @@
+---
+title: "Welcome to PerseveML: A Web-Based Tool to Identify **Per**sistent Biomarker **S**tructure for Rare **Eve**nts Using Integrative **M**achine **L**earning Approach "
+output: html_document
+# date: "2023-03-31"
+---
+
+
+### Step 1: Input file and options
+1. You have the option to select your own file in .csv, tab-delimited, excel and RDS format, or use one of the example data set, Nilsson rare, Mosmann rare, and SIN3 network.
+
+2. Select your categorical response variable (formatted as 0 and 1) from "**Choose your response**". 
+
+3. Select the variables that you don't want in your data analysis from the "**Select unwanted variables**".
+
+### Step 2: Normalization
+You have the option to select one of the following normalization techniques from the "**Normalization Technique**" option:
+1. *Min-max*
+2. *Log Scaling*
+3. *Standard Scaling*
+4. *Arcsine*
+5. *TopS* 
+6. *Percentage Row*
+7. *No Normalization*
+
+### Step 3: Machine Learning Models
+You can select one or more machine learning (ML) algorithms based on your research question from the "**Choose preferred algorithms**" option. The options include:
+
+* Tree-based algorithms:
+1. *Decision Tree*
+2. *Random Forest*
+3. *XgBoost*
+4. *AdaBoost*
+
+* Non-tree based algorithms:
+1. *Naive Bayes*
+2. *Linear SVM*
+3. *Non-linear SVM*
+4. *Polynomial SVM*
+
+* Linear classifiers:
+1. *LDA*
+2. *Logistic Regression*
+3. *Lasso Regression*
+4. *Ridge Regression*
+
+### Step 4: Select the train-test percentage
+The user can select can either enter or select any percentage between 0-100 to split the normalized/raw data into training and test sets using the "**Insert train-test ratio**" tab. Note that test set should have at least some data points for the app to run successfully.
+
+### Step 5: Select the value of *k* for cross-validation
+This app heavily rely on the performance of the ML methods. Since the algorithm is based on hyper-parameter tuning using grid search or cross-validation, using an optimum value of *k* is crucial. This app allows the user to select the value of *k* between 1 to 10 in the "**Value of k for cross validation**" tab.
+
+### Step 6: Select the threshold for cutpoint analysis
+Based on the user defined cut-point in the "**Insert cut-point analysis cutoff**", this app will formulate the persistent biomarker (or feature) structure. An user can use different combinations of normalizations, ML methods, and thresholds to come up with the most peristent structure.
+
+### Step 7: Running the app
+After the user have successfullly selected the preferred input options, they can go ahead and click on the gree "Submit" button of the upper left corner.
