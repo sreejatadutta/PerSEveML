@@ -24,7 +24,10 @@ suppressWarnings(library(shinyalert))
 suppressWarnings(library(readxl))
 
 ## Set seed
-set.seed(2023)
+set.seed(2022)
+
+## memory settings
+# memory.limit(size=1800)
 
 ## Import the example datasets
 dat1 <- readRDS("Nilsson_rare_notransform_2022.rds")
@@ -206,7 +209,7 @@ observeEvent(input$SubmitAll,
     
     output$norm_col = renderTable(head(norm.data(),10))
     
-    set.seed(2023)
+    set.seed(2022)
     trainIndex <- reactive({
       ratio <- input$ratio/100
       caret::createDataPartition(unlist(label()),p=ratio, list=FALSE)
@@ -281,7 +284,7 @@ observeEvent(input$SubmitAll,
   ## Selecting ML methods:Tree based: "Random Forest","XGBoost", "AdaBoost"
     ## Creating functions for DT with CV
     DT <- function(y, X.data, tc, ytest, Xtest){
-      set.seed(2023)
+      set.seed(2022)
       mod = rpart(y ~ ., X.data, control=rpart.control(xval=tc))
       varimp = caret::varImp(mod)
       varimp$Variable <- rownames(varimp)
@@ -318,7 +321,7 @@ observeEvent(input$SubmitAll,
                       stratified = T, 
                       print_every_n = 10, 
                       early_stop_rounds = 20, 
-                      maximize = F, set.seed=2023)
+                      maximize = F, set.seed=2022)
       val <- which.min(xgbcv$evaluation_log$test_logloss_mean)
             mod <- xgb.train(params = params, data = xgb_train, nrounds = val, 
                        eval_metric = "error")
