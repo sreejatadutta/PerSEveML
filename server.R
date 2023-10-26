@@ -22,6 +22,7 @@ suppressWarnings(library(magrittr))
 suppressWarnings(library(kernlab))
 suppressWarnings(library(shinyalert))
 suppressWarnings(library(readxl))
+suppressWarnings(library(corrplot))
 
 ## Set seed
 set.seed(2022)
